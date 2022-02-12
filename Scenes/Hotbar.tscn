@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="Hotbar" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 349.0
+margin_top = 530.0
+margin_right = 668.0
+margin_bottom = 594.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slots" type="GridContainer" parent="."]
+margin_left = 366.159
+margin_top = 542.557
+margin_right = 650.159
+margin_bottom = 582.557
+custom_constants/hseparation = 12
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 1" type="Panel" parent="Slots"]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 2" type="Panel" parent="Slots"]
+margin_left = 37.0
+margin_right = 62.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 3" type="Panel" parent="Slots"]
+margin_left = 74.0
+margin_right = 99.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 4" type="Panel" parent="Slots"]
+margin_left = 111.0
+margin_right = 136.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 5" type="Panel" parent="Slots"]
+margin_left = 148.0
+margin_right = 173.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 6" type="Panel" parent="Slots"]
+margin_left = 185.0
+margin_right = 210.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 7" type="Panel" parent="Slots"]
+margin_left = 222.0
+margin_right = 247.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+
+[node name="Slot 8" type="Panel" parent="Slots"]
+margin_left = 259.0
+margin_right = 284.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
