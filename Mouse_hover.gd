@@ -13,7 +13,7 @@ func grid_lock(pos):
 	
 func check_empty(pos)->bool:
 	var space = get_world_2d().direct_space_state;
-	var result = space.intersect_point(pos, 32, [], 2)
+	var result = space.intersect_point(pos, 32, [], 2, true, true)
 	return result.size() == 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
