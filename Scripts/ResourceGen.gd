@@ -1,13 +1,16 @@
 extends Node2D
 
-const WIDTH = 1020
-const HEIGHT = 600
+const WIDTH = 256
+const HEIGHT = 150
 
-const TILES = ["Grass", "Red", "Blue", "Yellow"]
+const TILES = ["Red", "Grass", "Yellow", "Blue"]
 
 var open_simplex_noise
+var camera_pos
 
 func _ready():
+	camera_pos = $Camera2D.position
+	
 	open_simplex_noise = OpenSimplexNoise.new()
 	open_simplex_noise.seed = randi()
 	
@@ -23,10 +26,11 @@ func _generate_world():
 		for y in HEIGHT:
 			var noise = open_simplex_noise.get_noise_2d(float(x), float(y))
 			var index = _get_tile_index(noise)
+			$TileMap.set_cell(x+camera_pos.x, y+camera_pos.y, index)
 			pass
 	pass
 
 func _get_tile_index(noise_sample):
-	noise_sample = (noise_sample+2)/2*TILES.size()
+	noise_sample = (noise_sample+1)/2.0*(TILES.size()+1)
 	noise_sample = round(noise_sample)
 	return noise_sample

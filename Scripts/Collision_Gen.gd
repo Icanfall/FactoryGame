@@ -43,6 +43,7 @@ func _process(_delta):
 	var col = get_colliding_bodies()
 	if not first:
 		for c in col:
-			if c.owner.get_meta("type") == "Base_Resource":
-				res = load("res://Scenes/"+c.owner.get_meta("resource")+".tscn");
-		first = true;
+			if c.owner.has_meta("type"):
+				if c.owner.get_meta("type") == "Base_Resource":
+					res = load("res://Scenes/"+c.owner.get_meta("resource")+".tscn");
+			first = true;

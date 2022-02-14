@@ -1,41 +1,90 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Hotbar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Mouse_hover.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Base Resource.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/R_Gen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/ResourceGen.gd" type="Script" id=5]
-[ext_resource path="res://Resource.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Mouse_hover.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Grass.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Yellow.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ResourceGen.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Resource.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Red.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=8]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 7.94505, 7.94506, 0.0940933, 7.94506, 0, 0, 7.94505, 0 )
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends TileSet
+
+func _ready():
+	set_meta(\"type\", \"Base_Resource\");
+	set_meta(\"resource\", \"B_Rec\");
+	pass
 "
 
 [sub_resource type="TileSet" id=3]
-0/name = "Resource.png 0"
-0/texture = ExtResource( 6 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
+1/name = "Red.png 1"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 8, 8 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-0/z_index = 0
+1/z_index = 0
+2/name = "Grass.png 2"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 8, 8 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Yellow.png 3"
+3/texture = ExtResource( 4 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 8, 8 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "Resource.png 4"
+4/texture = ExtResource( 6 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 7, 7 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
 script = SubResource( 2 )
 
 [node name="Main Scene" type="Node2D"]
@@ -43,24 +92,15 @@ script = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 4
 format = 1
 script = ExtResource( 2 )
 
-[node name="Base Resource" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 160 )
-
-[node name="Base Resource2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 96, 160 )
-
-[node name="Base Resource3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 96, 96 )
-
-[node name="R_Gen" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, 160 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 510, 300 )
+anchor_mode = 0
 current = true
+script = ExtResource( 8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
