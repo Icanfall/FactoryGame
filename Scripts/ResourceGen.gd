@@ -9,13 +9,13 @@ var open_simplex_noise
 var camera_pos
 
 func _ready():
-	camera_pos = $Camera2D.position
+	camera_pos = $Camera_Holder.position
 	
 	open_simplex_noise = OpenSimplexNoise.new()
 	open_simplex_noise.seed = randi()
 	
 	open_simplex_noise.octaves = 4
-	open_simplex_noise.period = 15
+	open_simplex_noise.period = 50
 	open_simplex_noise.lacunarity = 1.5
 	open_simplex_noise.persistence = 0.75
 	
@@ -27,8 +27,6 @@ func _generate_world():
 			var noise = open_simplex_noise.get_noise_2d(float(x), float(y))
 			var index = _get_tile_index(noise)
 			$TileMap.set_cell(x+camera_pos.x, y+camera_pos.y, index)
-			pass
-	pass
 
 func _get_tile_index(noise_sample):
 	noise_sample = (noise_sample+1)/2.0*(TILES.size()+1)
