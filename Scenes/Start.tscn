@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Button.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 435.578
+margin_top = 301.227
+margin_right = 517.578
+margin_bottom = 321.227
+rect_scale = Vector2( 1.88, 1.4 )
+action_mode = 0
+text = "New Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 429.921
+margin_top = 381.838
+margin_right = 498.921
+margin_bottom = 401.838
+rect_scale = Vector2( 2.56, 1.44 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_right = 114.0
+margin_bottom = 40.0
+rect_scale = Vector2( 8.6, 6.2 )
+text = "Factory Game!"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

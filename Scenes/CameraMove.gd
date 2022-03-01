@@ -23,6 +23,8 @@ func get_inputs():
 	return 100*vel.normalized()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var vel = get_inputs()
+	if vel != Vector2(0,0):
+		get_parent()._generate_world()
 	move_and_slide(vel)

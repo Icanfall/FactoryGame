@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Hotbar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Mouse_hover.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Red.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/CameraMove.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/R_Gen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 7.94505, 7.94506, 0.0940933, 7.94506, 0, 0, 7.94505, 0 )
@@ -93,10 +94,15 @@ script = SubResource( 2 )
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="R_Gen" parent="." instance=ExtResource( 10 )]
+position = Vector2( 144, 144 )
+
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 3 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 4
+collision_layer = 3
 format = 1
 script = ExtResource( 2 )
 
