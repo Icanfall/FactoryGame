@@ -27,4 +27,5 @@ func _process(_delta):
 	var vel = get_inputs()
 	if vel != Vector2(0,0):
 		get_parent()._generate_world()
+# warning-ignore:return_value_discarded
 	move_and_slide(vel)

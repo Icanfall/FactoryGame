@@ -53,6 +53,6 @@ func _process(_delta):
 				break;
 		if t_map != null:
 			var index = t_map.get_cellv(position/t_map.cell_size);
-			if index != -1:
+			if index != -1 and index != 2:
 				res = load("res://Scenes/" + t_map.Resources[index] + ".tscn")
 	first = true;

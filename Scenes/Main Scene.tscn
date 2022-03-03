@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Hotbar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Mouse_hover.gd" type="Script" id=2]
@@ -7,23 +7,14 @@
 [ext_resource path="res://Scripts/ResourceGen.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/Resource.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Red.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/CameraMove.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/CameraMove.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/R_Gen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 7.94505, 7.94506, 0.0940933, 7.94506, 0, 0, 7.94505, 0 )
 
-[sub_resource type="GDScript" id=2]
-script/source = "extends TileSet
-
-func _ready():
-	set_meta(\"type\", \"Base_Resource\");
-	set_meta(\"resource\", \"B_Rec\");
-	pass
-"
-
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=2]
 1/name = "Red.png 1"
 1/texture = ExtResource( 7 )
 1/tex_offset = Vector2( 0, 0 )
@@ -87,9 +78,8 @@ func _ready():
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
-script = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 5 )
@@ -99,9 +89,8 @@ position = Vector2( 144, 144 )
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
-tile_set = SubResource( 3 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 8, 8 )
-cell_quadrant_size = 4
 collision_layer = 3
 format = 1
 script = ExtResource( 2 )
@@ -110,7 +99,7 @@ script = ExtResource( 2 )
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_Holder"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="Camera_Holder"]

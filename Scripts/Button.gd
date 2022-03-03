@@ -14,6 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if(pressed):
-		get_tree().change_scene("res://Scenes/Main Scene.tscn")
+		var _trash = get_tree().change_scene("res://Scenes/Main Scene.tscn")
 		pass
 	pass

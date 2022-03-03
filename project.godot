@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Resource",
+"class": "Invintory",
+"language": "GDScript",
+"path": "res://Items/Invintory.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Items/Resources.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"GitAPI": "",
+"Invintory": "",
+"Item": ""
 }
 
 [application]
@@ -23,6 +35,15 @@ _global_script_class_icons={
 config/name="FactoryGame"
 run/main_scene="res://Scenes/Start.tscn"
 config/icon="res://Sprites/icon.png"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gdnative]
 

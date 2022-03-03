@@ -24,8 +24,8 @@ func _ready():
 
 func _generate_world():
 	camera_pos = $Camera_Holder.position/$TileMap.cell_size
-	for x in range(camera_pos.x,WIDTH+camera_pos.x):
-		for y in range(camera_pos.y,HEIGHT+camera_pos.y):
+	for x in range(camera_pos.x-40,WIDTH+camera_pos.x):
+		for y in range(camera_pos.y-40,HEIGHT+camera_pos.y):
 			if $TileMap.get_cell(x,y) != -1:
 				continue
 			var noise = open_simplex_noise.get_noise_2d(float(x), float(y))

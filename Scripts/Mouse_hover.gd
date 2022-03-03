@@ -7,10 +7,10 @@ var act_obj = null
 var sz = get_cell_size()
 
 var Resources = {
-	0:"Red_Rec",
-	1:"NULL",
-	2:"B_Rec",
-	3:"Yellow_Rec"
+	1:"Red_Rec",
+	2:"NULL",
+	3:"Yellow_Rec",
+	4:"B_Rec"
 };
 
 func grid_lock(pos):
@@ -18,7 +18,7 @@ func grid_lock(pos):
 	pos.y = floor(pos.y/sz.y)*sz.y+sz.y/2
 	return pos
 	
-func check_empty(pos)->bool:
+func check_empty(_pos)->bool:
 	return not act_obj.get_intersecting();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
