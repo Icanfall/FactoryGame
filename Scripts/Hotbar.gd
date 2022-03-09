@@ -1,5 +1,4 @@
 extends GridContainer
-
 var invintory = preload("res://Items/Invintory.tres")
 
 
@@ -20,7 +19,3 @@ func update_invintory_slot_display(item_index):
 func _on_items_changed(indexes):
 	for item_index in indexes:
 		update_invintory_slot_display(item_index)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
